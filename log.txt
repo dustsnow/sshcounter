@@ -1,0 +1,9 @@
+After I added the device search code, it cannot connect to deive anymore
+The reason is I comment out the block of errno == EINPROGRESS, and also the socket is set to non-blocking. Connect() function call on a non-blocking socket will return -1 immediately. That why it doesn't work. It has nothing to do with device search code
+
+Now, it's able to connect to the device whenever it plugin(Hot plugin pullout capability)
+Next step:
+	config file. daemon read configuration from config file
+	startup script. be able to start, stop, restart service
+Later:
+	Abstract bluetooth connection functionality to a daemon. Other daemon can utility this daemon to transfer data.
